@@ -1,0 +1,171 @@
+/* Overall Body and HTML settings to ensure full coverage and no unexpected overflow */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Prevents scroll bars on the main window */
+    font-family: 'Arial', sans-serif;
+    /* Ensures a clean, readable font is used */
+}
+
+/* Chatbox styles */
+#chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    /* Width of the chat window */
+    min-height: 400px;
+    /* Minimum height of the chat window */
+    border: 1px solid #ccc;
+    /* Subtle border around the chat window */
+    background-color: #f9f9f9;
+    /* Light grey background for the chat window */
+    padding: 10px;
+    box-sizing: border-box;
+    /* Ensures padding does not affect the width */
+    display: none;
+    /* Initially hidden until toggled */
+    z-index: 1000;
+    /* Keeps the chatbox above other content */
+}
+
+/* Styles for the message container inside the chatbox */
+#messages {
+    height: 330px;
+    /* Height to accommodate multiple messages */
+    overflow-y: auto;
+    /* Allows scrolling through past messages */
+    background: #fff;
+    /* White background for the message area */
+    border: 1px solid #ddd;
+    /* Slight border for the message area */
+    margin-bottom: 10px;
+}
+
+/* Styling for user and bot messages for clear differentiation */
+.message {
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 15px;
+    /* Rounded corners for message bubbles */
+}
+
+.user-message {
+    background-color: #007bff;
+    /* Blue background for user messages */
+    color: white;
+    /* White text for readability */
+    margin-left: 50%;
+    /* Aligns user messages to the right */
+    text-align: right;
+    /* Right aligns the text in the user message bubbles */
+}
+
+.bot-message {
+    background-color: #e9ecef;
+    /* Light grey background for bot messages */
+    color: #333;
+    /* Dark grey text for readability */
+    margin-right: 50%;
+    /* Aligns bot messages to the left */
+    text-align: left;
+    /* Left aligns the text in the bot message bubbles */
+}
+
+/* Styling for the input field where users type their messages */
+#chat-form input[type="text"] {
+    width: calc(100% - 130px);
+    /* Adjusts width to leave space for the send button */
+    padding: 8px;
+    border: 1px solid #ccc;
+    /* Subtle border for the input field */
+    border-radius: 4px;
+    /* Rounded corners for the input field */
+    font-size: 16px;
+    /* Sufficiently large font size for easy reading */
+}
+
+#chat-form input[type="text"]:focus {
+    border-color: #007bff;
+    /* Blue border when input field is focused */
+    outline: none;
+    /* Removes the default focus highlight */
+}
+
+/* Send button styling */
+#chat-form button {
+    background-color: #007bff;
+    /* Blue background for the send button */
+    color: white;
+    /* White text on the send button */
+    border: none;
+    /* No border to keep the button clean */
+    border-radius: 4px;
+    /* Rounded corners on the button */
+    padding: 8px 12px;
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    font-size: 16px;
+    /* Matching font size with the input field */
+    margin-left: 10px;
+    /* Spacing from the input field */
+}
+
+#chat-form button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover for better interaction */
+}
+
+/* Chat icon button styling */
+#open_chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    /* Circular button */
+    font-size: 24px;
+    /* Icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    /* Fixed width for the icon button */
+    height: 50px;
+    /* Fixed height for the icon button */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Shadow for aesthetics */
+}
+
+#open_chat:hover {
+    background-color: #0056b3;
+    /* Darker shade when hovered */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    #chatbox {
+        width: 95%;
+        /* Full width on smaller screens */
+        right: 2.5%;
+        /* Centering the chatbox */
+        bottom: 10px;
+        /* Lower placement */
+    }
+
+    #chat-form input[type="text"] {
+        width: calc(100% - 140px);
+        /* Adjusts width for smaller screens */
+    }
+
+    #open_chat {
+        bottom: 75px;
+        /* Ensures visibility above the chatbox */
+    }
+}
