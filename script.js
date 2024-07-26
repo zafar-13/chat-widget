@@ -1,6 +1,8 @@
 document.getElementById('open_chat').onclick = function () {
     var chatbox = document.getElementById('chatbox');
-    chatbox.style.display = chatbox.style.display === 'none' ? 'block' : 'none';
+    if (chatbox.style.display === '' || chatbox.style.display === 'none') {
+        chatbox.style.display = 'block';
+    }
 };
 
 document.getElementById('chat-form').onsubmit = function (event) {
@@ -20,7 +22,7 @@ function sendMessage() {
     messagesContainer.appendChild(userDiv);
 
     // Example POST fetch request
-    fetch('https://8125-40-117-125-249.ngrok-free.app/chat', {
+    fetch('http://20.75.236.64:8005/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
